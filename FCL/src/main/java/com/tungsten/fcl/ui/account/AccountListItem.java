@@ -235,7 +235,7 @@ public class AccountListItem {
             CountDownLatch latch = new CountDownLatch(1);
             AtomicReference<AuthInfo> res = new AtomicReference<>(null);
             Schedulers.androidUIThread().execute(() -> {
-                ClassicAccountLoginDialog dialog = new ClassicAccountLoginDialog(FCLPath.CONTEXT, (ClassicAccount) account, it -> {
+                ClassicAccountLoginDialog dialog = new CreateAccountDialog(FCLPath.CONTEXT, (ClassicAccount) account, it -> {
                     res.set(it);
                     latch.countDown();
                 }, latch::countDown);

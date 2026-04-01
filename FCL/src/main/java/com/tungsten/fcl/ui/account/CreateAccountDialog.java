@@ -108,6 +108,10 @@ public class CreateAccountDialog extends FCLDialog implements View.OnClickListen
         this(context, Accounts.getAccountFactoryByAuthlibInjectorServer(authServer));
     }
 
+    public CreateAccountDialog(@NonNull Context context, ClassicAccount oldAccount, Consumer<AuthInfo> success, Runnable failed) {
+        this(context, Accounts.getAccountFactory(oldAccount));
+    }
+
     private void init(AccountFactory<?> factory) {
         if (factory == null) {
             showMethodSwitcher = true;
